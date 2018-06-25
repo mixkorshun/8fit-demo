@@ -17,7 +17,7 @@ ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=[])
 
 # Application definition
 INSTALLED_APPS = [
-    'home',
+    'eightfit.apps.home',
 
     'wagtail.contrib.forms',
     'wagtail.contrib.redirects',

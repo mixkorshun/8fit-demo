@@ -18,7 +18,6 @@ ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=[])
 # Application definition
 INSTALLED_APPS = [
     'home',
-    'search',
 
     'wagtail.contrib.forms',
     'wagtail.contrib.redirects',

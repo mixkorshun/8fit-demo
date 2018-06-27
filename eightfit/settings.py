@@ -139,3 +139,19 @@ BASE_URL = env.str('BASE_URL')
 
 EMAIL_CONFIG = env.email_url('EMAIL_URL', default='smtp://')
 vars().update(EMAIL_CONFIG)
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console'],
+            'level': env.str('LOG_LEVEL', default='ERROR'),
+        },
+    },
+}

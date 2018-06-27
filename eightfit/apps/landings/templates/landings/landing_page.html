@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% load wagtailcore_tags %}
+
+{% block content %}
+  <article id="post-89" class="post-89 page type-page status-publish hentry">
+    <header class="entry-header page-header"></header>
+    <div class="entry-content page-content ">
+      <h1>{{ self.title }}</h1>
+
+      {% for block in self.blocks.all %}
+        <div>
+          <h2>{{ block.heading }}</h2>
+
+          <div>
+            {{ block.content|richtext }}
+          </div>
+        </div>
+      {% endfor %}
+
+      <div style="margin: 75px auto; width: 420px;">
+        Subscribe for <b>{{ self.offer.plan }}</b> plan
+        {% if self.offer.discount %} with {{ self.offer.discount }}%
+          discount!{% endif %}
+      </div>
+
+    </div>
+  </article>
+{% endblock %}

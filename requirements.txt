@@ -3,3 +3,4 @@ wagtail>=2.1,<2.2
 django-environ~=0.4.4
 psycopg2~=2.7.5
 gunicorn~=19.8.1
+WhiteNoise~=3.3.1

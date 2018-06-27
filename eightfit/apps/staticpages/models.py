@@ -8,6 +8,8 @@ from wagtail.core.models import Page
 class HomePage(Page):
     body = RichTextField(blank=True, verbose_name=_('body'))
 
+    parent_page_types = ['wagtailcore.Page']
+
     content_panels = Page.content_panels + [
         FieldPanel('body', classname="full"),
     ]
@@ -19,6 +21,11 @@ class HomePage(Page):
 
 class StaticPage(Page):
     body = RichTextField(blank=True, verbose_name=_('body'))
+
+    parent_page_types = [
+        'staticpages.HomePage',
+        'staticpages.StaticPage'
+    ]
 
     content_panels = Page.content_panels + [
         FieldPanel('body', classname="full"),

@@ -6,7 +6,7 @@ product plans and offers.
 View demo at [eightfit.herokuapp.com](https://eightfit.herokuapp.com/)
 
 admin:  
-`https://eightfit.herokuapp.com/admin/`  
+[https://eightfit.herokuapp.com/admin/](https://eightfit.herokuapp.com/admin/)  
 `admin:8fitadmin`
 
 ## Features

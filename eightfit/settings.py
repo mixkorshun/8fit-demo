@@ -85,7 +85,7 @@ WSGI_APPLICATION = 'eightfit.wsgi.application'
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
 DATABASES = {
-    'default': env.db_url('DATABASE_URL')
+    'default': env.db_url('DATABASE_URL', 'sqlite:///db.sqlite3')
 }
 
 # Password validation

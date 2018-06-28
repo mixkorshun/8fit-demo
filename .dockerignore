@@ -1,0 +1,12 @@
+/.idea
+/env
+/static
+/media
+
+*.pyc
+__pycache__
+
+/.env
+/.env.*
+
+/db.sqlite3

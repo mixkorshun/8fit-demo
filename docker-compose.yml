@@ -1,0 +1,54 @@
+version: '2'
+
+services:
+  database:
+    image: postgres:10.4-alpine
+    ports:
+      - 5432
+    environment:
+      POSTGRES_USER: '8fit'
+      POSTGRES_PASSWORD: '8fit8fit'
+      POSTGRES_DB: '8fit'
+
+  migrate:
+    build: .
+    command: 'migrate'
+
+    depends_on:
+      - database
+    env_file:
+      - .env
+    environment:
+      DATABASE_URL: 'postgres://8fit:8fit8fit@database:5432/8fit'
+
+  backend:
+    build: .
+    depends_on:
+      - database
+      - migrate
+    links:
+      - database:database
+    ports:
+      - 80
+    env_file:
+      - .env
+    environment:
+      DATABASE_URL: 'postgres://8fit:8fit8fit@database:5432/8fit'
+    volumes:
+     - static:/code/static:rw
+     - media:/code/media:rw
+
+  web:
+    image: nginx:stable-alpine
+    ports:
+      - 9000:9000
+    links:
+      - backend
+    volumes:
+     - ./docker-nginx.conf:/etc/nginx/nginx.conf:ro
+     - static:/code/static:ro
+     - media:/code/media:ro
+
+volumes:
+  static:
+  media:
